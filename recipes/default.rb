@@ -1,3 +1,8 @@
+pkgs = %w{wget}
+pkgs.each do |pkg|
+  package pkg
+end
+
 execute "Extracting and Building ncftp #{node['ncftp']['version']} from Source" do
   cwd Chef::Config['file_cache_path']
   command <<-COMMAND
